@@ -65,4 +65,19 @@ class Dash extends Controller
     		'PRODUCT' => MProducts::where('id', $id) -> first(),
     	]);
     }
+
+    /*
+    *   Delete
+    */
+    public function delete($id)
+    {
+        Storage::delete(MProducts::select('fname') -> where('id', $id) -> first() -> fname);
+        
+        MProducts::where('id', $id) -> delete();
+
+        return view('area51.index', [
+            'PRODUCTS' => MProducts::all(),
+            'MESSAGE' => 'Product deleted with success!',
+        ]);
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Products as MProducts;
 use Illuminate\Http\Request;
 
 class Index extends Controller
@@ -11,6 +12,8 @@ class Index extends Controller
     */
     public function index()
     {
-    	return view('index');
+    	return view('index', [
+    		'PRODUCTS' => MProducts::all(),
+    	]);
     }
 }

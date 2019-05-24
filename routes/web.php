@@ -10,15 +10,29 @@ Route::get('/', 'Index@index');
 */
 Route::prefix('/area51') -> group(function()
 {
+	/*
+	*	Login
+	*/
 	Route::get('/', 'Area51\Index@index');
 	Route::get('/login', 'Auth\LoginController@showLoginForm') -> name('login');
 	Route::post('/login', 'Auth\LoginController@login');
 
-	Route::get('/register', 'Auth\RegisterController@showRegistrationForm');
+	/*
+	*	Registration (available once)
+	*/
+	Route::get('/register', 'Auth\RegisterController@showRegistrationForm') -> name('register');
 	Route::post('/register', 'Auth\RegisterController@create');
 
-	Route::middleware('auth') -> group(function()
-	{
+	/*
+	*	Logout
+	*/
+	Route::get('/logout', 'Auth\LoginController@logout');
+
+	/*
+	*	Dashboard
+	*/
+	//Route::middleware('auth') -> group(function()
+	//{
 		Route::prefix('dash') -> group(function() 
 		{
 			Route::get('/', 'Area51\Dash@index');
@@ -26,11 +40,10 @@ Route::prefix('/area51') -> group(function()
 
 			Route::get('/edit/{id}', 'Area51\Dash@read');
 			Route::patch('/edit/{id}', 'Area51\Dash@update');
-
-			Route::get('/logout', 'Auth\LoginController@logout');
+			Route::get('/delete/{id}', 'Area51\Dash@delete');
 		});
 
-	});
+	//});
 });
 
 

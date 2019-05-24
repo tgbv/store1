@@ -47,10 +47,14 @@
 							<div class="card">
 								<div class="card-image">
 									<img src="/static/{{ $object -> fname}}">
-									<span class="card-title">{{ $object -> title }}</span>
+									
+								</div>
+								<div class="card-content">
+									<span class="card-title">{{ $object -> title }} ({{$object -> price}})</span>
 								</div>
 								<div class="card-action">
 									<a href="/area51/dash/edit/{{ $object -> id }}">Edit</a>
+									<a class="red-text" href="#!" onclick="__del({{ $object -> id }});">Delete</a>
 								</div>
 							</div>
 						</div>
@@ -61,6 +65,13 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<script type="text/javascript">
+
+			function __del(id)
+			{
+				if(confirm('Are you sure you want to delete this product?'))
+					window.location = '/area51/dash/delete/'+id;
+			}
+
 			$(document).ready(function(){
 				$('.collapsible').collapsible();
 
