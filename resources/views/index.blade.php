@@ -7,7 +7,7 @@
 		background-color: #ff0075; 
 		text-align: center;
 		padding: 12px;
-		margin-top: -2px;
+		margin-top: -3px;
 	}
 
 	.__wall2 .__welcome {
