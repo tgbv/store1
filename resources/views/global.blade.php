@@ -104,13 +104,22 @@
 			<div class="footer-copyright" style="background-color: #c5005a !important;">
 				<div class="container">
 					© 2019 - All rights reserved
-					<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+					<a class="grey-text text-lighten-4 right" href="#!" onclick="__scrolltop(this)">
+						<i style="margin-top: 2px;" class="material-icons">arrow_drop_up</i>
+						<span style="position:relative; top: -6.5px;">Go to top</span>
+					</a>
 				</div>
 			</div>
 		</footer>
 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<script type="text/javascript">
+			var __scrolltop = function(__element) {
+			    $('html, body').animate({
+			        scrollTop: $('html').offset().top
+			    }, 700);
+			}
+
 			$(document).ready(function(){
 				$('.materialboxed').materialbox();
 				$('.sidenav').sidenav();
