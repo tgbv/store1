@@ -67,7 +67,7 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<script type="text/javascript">
 
-			function __del(id)
+			var __del = function (id)
 			{
 				if(confirm('Are you sure you want to delete this product?'))
 					window.location = '/area51/dash/delete/'+id;

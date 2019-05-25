@@ -10,6 +10,10 @@
 		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 		<style type="text/css">
+			html {
+				scroll-behavior: smooth;
+			}
+
 			body {
 				display: flex;
 				min-height: 100vh;
@@ -40,6 +44,14 @@
 			{
 				color: lightgrey;
 			}
+			
+			.__wall2 {
+				height: 300px;
+				background-color: #ff0075; 
+				text-align: center;
+				padding: 12px;
+				margin-top: -3px;
+			}
 
 			@yield('style')
 		</style>
@@ -52,10 +64,13 @@
 				<div class="container">
 					<div class="__menu">
 						<a href="#!" data-target="__sidenav" class="sidenav-trigger" style="float: left; display: inline;"><i class="material-icons">menu</i></a>
-						<a href="/cart" style="float: right; display: inline;"><i class="material-icons">shopping_cart</i></a>
+						<a href="/cart#cart" style="float: right; display: inline;"><i class="material-icons">shopping_cart</i></a>
 					</div>
 				</div>
 			</div>
+
+			<!-- giant cover -->
+			<div class="__wall2 z-depth-2">@yield('cover')</div>
 
 			<!-- global sidenav -->
 			<ul id="__sidenav" class="sidenav"> 
@@ -66,7 +81,19 @@
 					</a>
 				</li>
 				<li>
-					<a href="/cart">
+					<a href="/#about_me">
+					<i class="material-icons">account_circle</i>
+						&nbsp;About me
+					</a>
+				</li>
+				<li>
+					<a href="/#my_work">
+					<i class="material-icons">photo_library</i>
+						&nbsp;My work
+					</a>
+				</li>
+				<li>
+					<a href="/cart#cart">
 					<i class="material-icons">shopping_cart</i>
 						&nbsp;Cart
 					</a>
@@ -84,20 +111,66 @@
 
 		<main>@yield('main')</main>
 
-		<footer class="page-footer z-depth-2" style="background-color: #ff0075 !important; ">
+		<footer id="footer" class="page-footer z-depth-2" style="background-color: #ff0075 !important; ">
 			<div class="container">
 				<div class="row">
-					<div class="col l6 s12">
-						<h5 class="white-text">Footer Content</h5>
-						<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-					</div>
-					<div class="col l4 offset-l2 s12">
-						<h5 class="white-text">Links</h5>
+					<div class="col l4 offset-l1 m4 s12">
+						<h5 class="white-text">Quick links</h5>
 						<ul>
-							<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-							<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-							<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-							<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+							<li>
+								<a class="grey-text text-lighten-3" href="/">
+									<span>Homepage</span>
+								</a>
+							</li>
+							<li>
+								<a class="grey-text text-lighten-3" href="/#about_me">
+									<span>About me</span>
+								</a>
+							</li>
+							<li>
+								<a class="grey-text text-lighten-3" href="/#my_work">
+									<span>My work</span>
+								</a>
+							</li>
+							<li>
+								<a class="grey-text text-lighten-3" href="/cart#cart">
+									<span>Cart</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col l4 m4 s12">
+						<h5 class="white-text">Contact Me</h5>
+						<ul>
+							<li>
+								<a class="grey-text text-lighten-3" href="#!">
+									<i class="fa fa-facebook" aria-hidden="true"></i>
+									<span style="margin-left: 6px;">Facebook</span>
+								</a>
+							</li>
+							<li>
+								<a class="grey-text text-lighten-3" href="#!">
+									<i class="fa fa-whatsapp"></i>
+									<span style="margin-left: 2px;">Whatsapp</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col l3 m4 s12">
+						<h5 class="white-text">Support me</h5>
+						<ul>
+							<li>
+								<a class="grey-text text-lighten-3" href="#!">
+									<i class="fa fa-paypal" aria-hidden="true"></i>
+									<span style="margin-left: 6px;">Paypal</span>
+								</a>
+							</li>
+							<li>
+								<a class="grey-text text-lighten-3" href="#!">
+									<i class="fa fa-credit-card"></i>
+									<span style="margin-left: 2px;">Credit card</span>
+								</a>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -121,9 +194,27 @@
 			    }, 700);
 			}
 
+
 			$(document).ready(function(){
 				$('.materialboxed').materialbox();
 				$('.sidenav').sidenav();
+
+				/*
+				*	Smooth scroll when page loads
+				*/
+				if(typeof $(location.hash).offset() !== 'undefined')
+				{
+					$('html,body').animate({
+						scrollTop: $(location.hash).offset().top
+					}, 700);
+				}
+
+				/*
+				*	Retreat sidenav when link is clicked
+				*/
+				$('.sidenav a').click(function(){
+					M.Sidenav.getInstance($('#__sidenav')).close();
+				});
 			})
 		</script>
 	</body>
