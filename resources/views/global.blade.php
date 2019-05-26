@@ -196,8 +196,12 @@
 
 
 			$(document).ready(function(){
+				/*
+				*	M.* Initializators
+				*/
 				$('.materialboxed').materialbox();
 				$('.sidenav').sidenav();
+				$('select').formSelect();
 
 				/*
 				*	Smooth scroll when page loads
@@ -217,5 +221,6 @@
 				});
 			})
 		</script>
+		<script type="text/javascript">@yield('js')</script>
 	</body>
 </html>

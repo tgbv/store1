@@ -15,4 +15,14 @@ class Cart extends Controller
 
     	]);
     }
+
+    /*
+    *	Nfo section
+    */
+    public function nfo()
+    {
+    	return view('nfo', [
+    		
+    	]);
+    }
 }

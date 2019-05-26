@@ -12,31 +12,83 @@
 		font-weight: 100;
 	}
 
+	.__content .__cartnfo
+	{
+		font-size: 25px;
+		font-weight: 100;
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+
+	.__content table {
+		width: 100%;
+	}
+
+	.__content table i {
+		color: white;
+		position: relative;
+		top: -1px;
+		right: 7.5px !important;
+	}
+
+	.__content table .chip {
+		width: 10px;
+		height: 25px;
+	}
+
+	.btn
+	{
+		margin-top: 20px;
+		margin-bottom: 17px;
+		float: right;
+		background-color: #ff0075;
+	}
+
+	.btn:hover
+	{
+		background-color: #ff0075;
+	}
+
 @endsection
 @section('main')
 	<div class="container">
-		<div name="cart"></div>
+		<div id="cart"></div>
 		<div class="row __content">
-			<div class="col">
+			<div class="col l12 m12 s12">
 				<div class="__cart">Cart</div>
-				<table class="responsive-table highlight">
+				<div class="__cartnfo">
+					Please make sure these are the requested products.
+				</div>
+				<table class="highlight">
 					<thead>
 						<tr>
-							<td>Product</td>
-							<td>Quantity</td>
+							<td><b>Product</b></td>
+							<td><b>Quantity</b></td>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td>Product 1</td>
+							<td>
+								<span>Product 1</span>
+								<span class="red chip waves-effect waves-light" title="Remove from cart">
+									<i class="material-icons tiny" >close</i>
+								</span>
+							</td>
 							<td><code>1</code></td>
 						</tr>
 						<tr>
-							<td>Product 2</td>
-							<td><code>2</code></td>
+							<td>
+								<span>Product 2</span>
+								<span class="red chip waves-effect waves-light" title="Remove from cart">
+									<i class="material-icons tiny" >close</i>
+								</span>
+							</td>
+							<td><code>1</code></td>
 						</tr>
 					</tbody>
 				</table>
+
+				<div class="btn waves-effect waves-light white-text" onclick="window.location='/cart/nfo#nfo';">Next</div>
 			</div>
 		</div>
 	</div>

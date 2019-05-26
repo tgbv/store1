@@ -5,6 +5,7 @@
 */
 Route::get('/', 'Index@index');
 Route::get('/cart', 'Cart@index');
+Route::get('/cart/nfo', 'Cart@nfo');
 
 /*
 *	Admin panel
