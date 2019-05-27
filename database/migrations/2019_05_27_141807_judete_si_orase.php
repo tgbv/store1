@@ -13,7 +13,7 @@ class JudeteSiOrase extends Migration
      */
     public function up()
     {
-        DB::unprepared(file_get_contents('judete-orase.sql'));
+        DB::unprepared(file_get_contents(__FILE__ .'/judete-orase.sql'));
     }
 
     /**
