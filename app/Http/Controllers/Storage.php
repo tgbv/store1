@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 
 class Storage extends Controller
 {
+	/*
+	*	Read
+	*/
     public function read($fname)
     {
-    	return MStorage::download($fname);
+    	return response() -> file(storage_path() . '/app/' .$fname);
     }
 }

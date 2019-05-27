@@ -67,24 +67,19 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>
-								<span>Product 1</span>
-								<span class="red chip waves-effect waves-light" title="Remove from cart">
-									<i class="material-icons tiny" >close</i>
-								</span>
-							</td>
-							<td><code>1</code></td>
-						</tr>
-						<tr>
-							<td>
-								<span>Product 2</span>
-								<span class="red chip waves-effect waves-light" title="Remove from cart">
-									<i class="material-icons tiny" >close</i>
-								</span>
-							</td>
-							<td><code>1</code></td>
-						</tr>
+						@foreach($OBJECTS as $array)
+							<tr>
+								<td>
+									<span>{{ $array['title'] }}</span>
+									<a href="/cart/{{ $array['id'] }}/remove">
+										<span class="red chip waves-effect waves-light" title="Remove from cart">
+												<i class="material-icons tiny" >close</i>
+										</span>
+									</a>
+								</td>
+								<td><code>1</code></td>
+							</tr>
+						@endforeach
 					</tbody>
 				</table>
 

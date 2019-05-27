@@ -91,6 +91,8 @@
 	.__contact a:active {
 		color: grey !important;
 	}
+
+
 @endsection
 
 @section('main')
@@ -191,13 +193,13 @@
 				      <div class="card hoverable">
 				        <div class="card-image ">
 				          <img class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
-				          <a class="btn-floating halfway-fab waves-effect waves-light" title="Add this product to your cart">
-				          	<i class="material-icons">add_shopping_cart</i>
-				          </a>
 				        </div>
 				        <div class="card-content">
 				        	<span class="card-title">{{$object -> title}}</span>
-				        	({{ $object -> price }})
+				        </div>
+				        <div class="card-action">
+				        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}">Details</a>
+				        	<a class="red-text waves-effect" href="/cart/{{$object -> id}}/add">Add to cart</a>
 				        </div>
 				      </div>
 				    </div>
@@ -213,15 +215,16 @@
 				      <div class="card hoverable">
 				        <div class="card-image ">
 				          <img class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
-				          <a class="btn-floating halfway-fab waves-effect waves-light" title="Add this product to your cart">
-				          	<i class="material-icons">add_shopping_cart</i>
-				          </a>
 				        </div>
 				        <div class="card-content">
 				        	<span class="card-title">{{$object -> title}}</span>
-				        	({{ $object -> price }})
 				        </div>
-				      </div>
+
+				        <div class="card-action">
+				        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}">Details</a>
+				        	<a class="red-text waves-effect" href="/cart/{{$object -> id}}/add">Add to cart</a>
+				        </div>
+				    	</div>
 				    </div>
 				@endforeach
 			</div>

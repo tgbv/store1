@@ -69,30 +69,35 @@
 						<div class="row">
 							<div class="input-field col l4 m4 s12">
 								<select>
-								  <option value=""  selected>Choose your country</option>
-								  <option value="1">Romania</option>
+								  <option value="RO" selected>Romania</option>
 								</select>
 								<label>Country</label>
 							</div>
 							<div class="input-field col l4 m4 s12">
 								<select>
-								  <option value=""  selected>Choose your region</option>
-								  <option value="1">Timisoara</option>
+									<option value="default"  selected>Choose your region</option>
+									@foreach($COUNTIES as $object)
+								  		<option value="{{$object -> id}}" >{{ $object -> name }}</option>						
+									@endforeach
 								</select>
 								<label>Region</label>
 							</div>
 							<div class="input-field col l4 m4 s12">
 								<select>
-								  <option value=""  selected>Choose your city</option>
-								  <option value="1">Timisoara</option>
+								  <option value="default"  selected>Choose your city</option>
+
 								</select>
 								<label>City</label>
 							</div>
 						</div>
 						<div class="row">
-							<div class="input-field col l12 m12 s12">
+							<div class="input-field col l6 m6 s12">
 							  <input name="address" id="address" type="text" class="validate">
 							  <label class="active" for="address">Address</label>
+							</div>
+							<div class="input-field col l6 m6 s12">
+							  <input name="phone" id="phone" type="text" class="validate">
+							  <label class="active" for="phone">Phone number</label>
 							</div>
 						</div>
 					</form>

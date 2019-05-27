@@ -53,6 +53,16 @@
 				margin-top: -3px;
 			}
 
+			.toast a
+			{
+				color: yellow !important;
+			}
+
+			.toast a:hover
+			{
+				text-decoration: underline;
+			}
+
 			@yield('style')
 		</style>
 		@yield('head')
@@ -194,7 +204,6 @@
 			    }, 700);
 			}
 
-
 			$(document).ready(function(){
 				/*
 				*	M.* Initializators
@@ -219,6 +228,18 @@
 				$('.sidenav a').click(function(){
 					M.Sidenav.getInstance($('#__sidenav')).close();
 				});
+
+				@if(!empty($_GET['msg']))
+					M.toast({html: '{!! $_GET['msg'] !!}'}, 10000);
+				@endif
+
+				@if(!empty($MESSAGE))
+					M.toast({html: '{!! $MESSAGE !!}' }, 10000);
+				@endif
+
+				@if(\Session::has('msg'))
+					M.toast({html: '{!! \Session::get('msg') !!}' });
+				@endif
 			})
 		</script>
 		<script type="text/javascript">@yield('js')</script>
