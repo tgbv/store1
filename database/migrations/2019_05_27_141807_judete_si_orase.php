@@ -13,7 +13,7 @@ class JudeteSiOrase extends Migration
      */
     public function up()
     {
-    	$data = file_get_contents(__DIR__ .'/judete-orase.sql')
+    	$data = file_get_contents(__DIR__ .'/judete-orase.sql');
 
     	/*
     	*	Remove all comments from SQL import
