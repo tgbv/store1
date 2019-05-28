@@ -13,7 +13,22 @@ class JudeteSiOrase extends Migration
      */
     public function up()
     {
-        DB::unprepared("\r\n" .file_get_contents(__DIR__ .'/judete-orase.sql') . "\r\n");
+    	$data = file_get_contents(__DIR__ .'/judete-orase.sql')
+
+    	/*
+    	*	Remove all comments from SQL import
+    	*/
+    	$data = explode(PHP_EOL, $data);
+
+    	foreach($data as $k => $v)
+    	{
+    		if(strpos($v, '--') === 0)
+    			unset($data[$k]);
+    	}
+
+    	$data = implode(PHP_EOL, $data);
+
+        DB::unprepared($data);
     }
 
     /**
