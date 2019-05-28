@@ -14,7 +14,7 @@ class JudeteSiOrase extends Migration
     public function up()
     {
     	$data = file_get_contents(__DIR__ .'/judete-orase.sql');
-
+print_r($data);
     	/*
     	*	Remove all comments from SQL import
     	*/
@@ -28,7 +28,7 @@ class JudeteSiOrase extends Migration
 
     	$data = implode(PHP_EOL, $data);
 
-        DB::unprepared($data);
+        //DB::unprepared($data);
     }
 
     /**
