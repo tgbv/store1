@@ -68,7 +68,7 @@
 						</div>
 						<div class="row">
 							<div class="input-field col l4 m4 s12">
-								<select>
+								<select id='select_countries'>
 								  <option value="RO" selected>Romania</option>
 								</select>
 								<label>Country</label>
@@ -131,6 +131,10 @@
 	</div>
 @endsection
 @section('js')
+// <script type="text/javascript">
+
+	var gCities = <?= $CITIES ?>;
+
 	$(document).ready(function()
 	{
 		$('.checkbox').change(function()
@@ -145,5 +149,10 @@
 				$('#pickup_nfo').removeAttr('hidden');
 			}
 		});
+
+		$('#select_countries').change(function(){
+			
+		})
 	});
+//</script>
 @endsection

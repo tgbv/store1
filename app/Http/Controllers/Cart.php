@@ -44,7 +44,7 @@ class Cart extends Controller
     {
     	return view('nfo', [
     		'COUNTIES' => MCounties::select(['id', 'name']) -> get(),
-            'CITIES' => MCities::all(),
+            'CITIES' => MCities::select(['id', 'name', 'county_id']) -> get(),
     	]);
     }
 
