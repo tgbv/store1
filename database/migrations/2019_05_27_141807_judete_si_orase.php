@@ -26,11 +26,12 @@ class JudeteSiOrase extends Migration
     			unset($data[$k]);
     	}
 
+    	unset($data[0]);
     	print_r($data);
 
     	$data = implode(PHP_EOL, $data);
 
-        //DB::unprepared($data);
+        DB::unprepared($data);
     }
 
     /**
