@@ -19,12 +19,14 @@ class JudeteSiOrase extends Migration
     	*	Remove all comments from SQL import
     	*/
     	$data = explode(PHP_EOL, $data);
-print_r($data);
+
     	foreach($data as $k => $v)
     	{
     		if(strpos($v, '--') === 0)
     			unset($data[$k]);
     	}
+
+    	print_r($data);
 
     	$data = implode(PHP_EOL, $data);
 
