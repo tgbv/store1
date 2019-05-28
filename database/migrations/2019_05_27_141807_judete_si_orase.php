@@ -14,12 +14,12 @@ class JudeteSiOrase extends Migration
     public function up()
     {
     	$data = file_get_contents(__DIR__ .'/judete-orase.sql');
-print_r($data);
+
     	/*
     	*	Remove all comments from SQL import
     	*/
     	$data = explode(PHP_EOL, $data);
-
+print_r($data);
     	foreach($data as $k => $v)
     	{
     		if(strpos($v, '--') === 0)
