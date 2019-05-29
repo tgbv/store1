@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;	
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Database\Eloquent;
 use App\Orders as MOrders;
 
 class Order extends Controller
@@ -30,6 +31,7 @@ class Order extends Controller
     	/*
     	*	Insert data into DB
     	*/
+    	Eloquent::unguard();
     	MOrders::create(array_merge($data, [
     		'products' => implode(',', Session::get('products')),
     	]));
