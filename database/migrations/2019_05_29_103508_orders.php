@@ -24,6 +24,7 @@ class Orders extends Migration
             $table -> string('address');
             $table -> string('phone');
             $table -> text('products');
+            $table -> string('status');
             $table -> timestamps();
         });
     }
