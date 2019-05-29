@@ -30,7 +30,7 @@ class Order extends Controller
     	/*
     	*	Insert data into DB
     	*/
-    	MOrders::insert(array_merge($data, [
+    	MOrders::create(array_merge($data, [
     		'products' => implode(',', Session::get('products')),
     	]));
 
