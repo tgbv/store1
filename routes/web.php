@@ -14,12 +14,18 @@ Route::middleware('CartCheck') -> group(function()
 	Route::get('/cart', 'Cart@index');
 	Route::get('/cart/nfo', 'Cart@nfo');
 	Route::get('/cart/{id}/remove', 'Cart@delete');
+	Route::post('/cart/nfo', 'Order@create');
 });
 
 /*
 *	Products stuff
 */
 Route::get('/products/{id}', 'Products@read');
+
+/*
+*	Ajax stuff
+*/
+Route::get('/ajax/cities/{params}', 'Ajax@cities');
 
 /*
 *	Admin panel
