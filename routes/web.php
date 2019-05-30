@@ -57,6 +57,8 @@ Route::prefix('/area51') -> group(function()
 			Route::get('/edit/{id}', 'Area51\Dash@read');
 			Route::patch('/edit/{id}', 'Area51\Dash@update');
 			Route::get('/delete/{id}', 'Area51\Dash@delete');
+
+			Route::get('/orders/{status}', 'Area51\Orders@index');
 		});
 
 	//});
