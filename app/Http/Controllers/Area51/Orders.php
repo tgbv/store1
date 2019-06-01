@@ -49,7 +49,7 @@ class Orders extends Controller
         *   Get everything
         */
         $data = MOrders::with(['city', 'county']) -> find($id);
-return response($data);
+
         /*
         *   Parse product names
         */
