@@ -50,11 +50,11 @@
 				</tr>
 				<tr>
 					<td>County: </td>
-					<td><code>{{$ORDER -> county }}</code></td>
+					<td><code>{{$ORDER -> county() -> first() -> name}}</code></td>
 				</tr>
 				<tr>
 					<td>City: </td>
-					<td><code>{{ $ORDER -> city }}</code></td>
+					<td><code>{{ $ORDER -> city -> first() -> name }}</code></td>
 				</tr>
 				<tr>
 					<td>Address: </td>
