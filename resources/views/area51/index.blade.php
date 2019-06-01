@@ -1,5 +1,6 @@
 @extends('area51.global')
 @section('title') Dashboard @endsection
+
 @section('main')
 	<div class="container">
 		<ul class="collapsible">
@@ -30,7 +31,7 @@
 		<ul class="collapsible">
 			<li>
 				<div class="collapsible-header flow-text">
-					<a href="/area51/orders">Orders</a>
+					<a href="/area51/orders/all">Orders</a>
 				</div>
 			</li>
 		</ul>

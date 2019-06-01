@@ -35,6 +35,7 @@ class Order extends Controller
     	MEloquent::unguard();
     	MOrders::create(array_merge($data, [
     		'products' => implode(',', Session::get('products')),
+            'status' => 'pending',
     	]));
 
     	/*

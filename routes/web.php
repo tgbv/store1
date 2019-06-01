@@ -49,6 +49,9 @@ Route::prefix('/area51') -> group(function()
 	*/
 	//Route::middleware('auth') -> group(function()
 	//{
+		/*
+		*	Dashboard
+		*/
 		Route::prefix('dash') -> group(function() 
 		{
 			Route::get('/', 'Area51\Dash@index');
@@ -57,9 +60,14 @@ Route::prefix('/area51') -> group(function()
 			Route::get('/edit/{id}', 'Area51\Dash@read');
 			Route::patch('/edit/{id}', 'Area51\Dash@update');
 			Route::get('/delete/{id}', 'Area51\Dash@delete');
-
-			Route::get('/orders/{status}', 'Area51\Orders@index');
 		});
+
+		/*
+		*	Orders
+		*/
+		Route::get('/orders/{status}', 'Area51\Orders@index');
+		Route::get('/order/{id}', 'Area51\Orders@read');
+		Route::patch('/order/{id}', 'Area51\Orders@update');
 
 	//});
 });

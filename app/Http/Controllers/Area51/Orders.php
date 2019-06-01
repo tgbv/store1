@@ -44,7 +44,26 @@ class Orders extends Controller
     public function read(int $id)
     {
     	return view('area51.order', [
-    		'ORDER' => MOrder::where('id', $id) -> first(),
+    		'ORDER' => MOrders::where('id', $id) -> first(),
     	]);
+    }
+
+    /*
+    *   Patch
+    */
+    public function update(int $id)
+    {
+        /*
+        *   Swap the status of the order
+        */
+        if(MOrders::where('id', $id) -> first() -> status === 'pending')
+            MOrders::where('id', $id) -> update(['status' => 'processed']);
+        else
+            MOrders::where('id', $id) -> update(['status' => 'pending']);
+
+        /*
+        *   Return to order management
+        */
+        return $this -> read($id);
     }
 }
