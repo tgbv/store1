@@ -46,14 +46,26 @@ class Orders extends Controller
         /*
         *   Get everything
         */
-        $data = MOrders::find($id);
-        $data -> city = MOrders::find($id) -> city();
-        $data -> county = MOrders::find($id) -> county();
+        $data = MOrders::with(['city', 'county']) -> find($id);
 
-        
-        
+        /*
+        *   Parse product names
+        */
+        $products = explode(',', $data -> products);
+
+        /*
+        *   Parse product names
+        */        
+        foreach($products as $key => $id)
+            $products[$key] = MProducts::find($id);
+
+        /*
+        *   Re-assign product names
+        */
+        $data -> products = implode(',' $products);
+
     	return view('area51.order', [
-    		'ORDER' => MOrders::where('id', $id) -> first(),
+    		'ORDER' => $data,
     	]);
     }
 
