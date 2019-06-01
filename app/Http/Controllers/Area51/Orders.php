@@ -59,7 +59,7 @@ class Orders extends Controller
         *   Parse product names
         */        
         foreach($products as $key => $id)
-            $products[$key] = MProducts::find($id);
+            $products[$key] = MProducts::find($id) -> title;
 
         /*
         *   Re-assign product names
