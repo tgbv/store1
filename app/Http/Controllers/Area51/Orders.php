@@ -65,7 +65,7 @@ class Orders extends Controller
         *   Re-assign product names
         */
         $data -> products = implode(',', $products);
-return response() -> json($data -> city);        
+return response() -> json($data -> city() -> name);        
     	return view('area51.order', [
     		'ORDER' => $data,
     	]);
