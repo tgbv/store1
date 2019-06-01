@@ -29,9 +29,55 @@
 		background-color: #ff0075;
 	}
 
+	.modal-footer span
+	{
+		position: relative;
+		top: -5px;
+		left: -3px;
+	}
+
+	.modal-content a:hover
+	{
+		text-decoration: underline;
+		color: red;
+	}
+
+	h5
+	{
+		margin-top: -4px;
+	}
+
 @endsection
 @section('main')
 	<div class="container">
+
+		<!--- contact methods -->
+	  <div id="contact_method" class="modal">
+	    <div class="modal-content">
+	      <h4 class="hide-on-small-only">Contact methods</h4>
+	      <h5 class="hide-on-med-and-up">Contact methods</h5>
+	      <div class="flow-text">
+		      <ul>
+		      	<li>
+		      		<i class="fa fa-facebook"></i>
+		      		<a href="#!" style="margin-left: 5px;">Facebook</a>
+		      	</li>
+		      	<li>
+		      		<i class="fa fa-whatsapp"></i>
+		      		<a href="#!">Whatsapp</a>
+		      	</li>
+		      </ul>
+	      </div>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="#!" class="modal-close waves-effect waves-green btn-flat">
+	      	<i class="material-icons">close</i>&nbsp;
+	      	<span>Close</span>
+	      </a>
+	    </div>
+	  </div>
+	  	<!--- contact methods --->
+
 		<div id="nfo"></div>
 		<div class="row">
 			<div class="col l12 m12 s12">
@@ -117,7 +163,7 @@
 				<!-- second one is manual pickup -->
 				<div class="row" id="pickup_nfo" hidden="">
 					<div class="col">
-						<div>Please <a href="#footer">contact me</a> so we can set up a meeting to perform the exchange. Contact methods you will find in website's footer.</div>
+						<div>Please <a class="modal-trigger" href="#contact_method">contact me</a> so we can set up a meeting to perform the exchange.</div>
 					</div>
 				</div>
 			</div>
@@ -129,6 +175,11 @@
 
 	$(document).ready(function()
 	{
+		/*
+		*	Autoload stuff
+		*/
+		$('.modal').modal();
+
 		/*
 		*	Checkbox listener
 		*/

@@ -1,6 +1,11 @@
 @extends('area51.global')
 @section('title') Dashboard @endsection
-
+@section('css')
+	textarea
+	{
+		height: 100px;
+	}
+@endsection
 @section('main')
 	<div class="container">
 		<ul class="collapsible">
@@ -14,9 +19,14 @@
 						<input type="text" name="title">
 					</div>
 					<div>
-						<span>Price:&nbsp;</span>
+						<span>Price (RON):&nbsp;</span>
 						<input type="text" name="price">
 					</div>
+					<div>
+						<span>Description:&nbsp;</span>
+						<textarea name="description"></textarea>
+					</div>
+					<br>
 					<div>
 						<span>File:&nbsp;</span>
 						<input type="file" name="file">

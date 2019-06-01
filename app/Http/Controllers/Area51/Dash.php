@@ -32,6 +32,7 @@ class Dash extends Controller
     		'title' => $request -> input('title'),
     		'price' => $request -> input('price'),
     		'fname' => $fname,
+            'description' => $request -> description,
     	]);
 
     	return view('area51.index', [
@@ -45,11 +46,18 @@ class Dash extends Controller
     */
     public function update($id, Request $request)
     {
+        /*
+        *   Update DB records
+        */
     	MProducts::where('id', $id) -> update([
     		'title' => $request -> input('title'),
     		'price' => $request -> input('price'),
+            'description' => $request -> input('description'),
     	]);
 
+        /*
+        *   Return view
+        */
     	return view('area51.index', [
     		'MESSAGE' => 'Product updated with success!',
     		'PRODUCTS' => MProducts::all(),

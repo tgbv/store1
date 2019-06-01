@@ -74,7 +74,7 @@
 				<div class="__title __title_s hide-on-med-and-up">{{$PRODUCT -> title }}</div>
 
 				<div class="flow-text __description">
-					This picture is about me and my This picture is about me and my This picture is about me and my This picture is about me and my This picture is about me and my 
+					{{ $PRODUCT -> description }}
 				</div>
 
 				<center>

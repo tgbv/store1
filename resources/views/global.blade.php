@@ -1,3 +1,11 @@
+<?php
+
+	if(\Illuminate\Support\Facades\Session::has('products') === true)
+		$products = count(\Illuminate\Support\Facades\Session::get('products'));
+	else
+		$products = 0;
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -63,6 +71,40 @@
 				text-decoration: underline;
 			}
 
+			.cart-chip
+			{
+				background-color: #8200de;
+				border-radius: 100%;
+				position: relative;
+				display: inline;
+				left: -5px;
+				top: 2px;	
+			}
+
+			.cart-chip span
+			{
+				margin: 7px;
+			}
+
+			.cart-chip-menu
+			{
+				background-color: #8200de;
+				border-radius: 100%;
+				position: relative;
+				display: inline;
+				color: white;
+				left: -35px;
+				top: 11px;
+			}
+
+			.cart-chip-menu span
+			{
+				margin-left: 4px;
+				margin-right: 4px;
+				position: relative;
+				left: 2px;
+			}
+
 			@yield('style')
 		</style>
 		@yield('head')
@@ -74,7 +116,14 @@
 				<div class="container">
 					<div class="__menu">
 						<a href="#!" data-target="__sidenav" class="sidenav-trigger" style="float: left; display: inline;"><i class="material-icons">menu</i></a>
-						<a href="/cart#cart" style="float: right; display: inline;"><i class="material-icons">shopping_cart</i></a>
+						<a href="/cart#cart" style="float: right; display: inline;">
+							<i class="material-icons">shopping_cart</i>
+							@if($products > 0)
+								<div class="cart-chip">
+									<span>{{ $products }}</span>
+								</div>
+							@endif
+						</a>
 					</div>
 				</div>
 			</div>
@@ -105,7 +154,14 @@
 				<li>
 					<a href="/cart#cart">
 					<i class="material-icons">shopping_cart</i>
-						&nbsp;Cart
+						@if($products > 0)
+							<div class="cart-chip-menu">
+								<span>{{ $products }}</span>
+							</div>
+							<span style="position: relative; left: -15.3px;">Cart</span>
+						@else
+							<span>&nbsp;Cart</span>
+						@endif
 					</a>
 				</li>
 
