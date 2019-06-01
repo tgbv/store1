@@ -50,11 +50,11 @@
 				</tr>
 				<tr>
 					<td>County: </td>
-					<td><code><?= $ORDER -> county['name'] ?></code></td>
+					<td><code><?= var_dump($ORDER -> county) ?></code></td>
 				</tr>
 				<tr>
 					<td>City: </td>
-					<td><code><?= $ORDER -> city['name'] ?></code></td>
+					<td><code><?= var_dump($ORDER -> city) ?></code></td>
 				</tr>
 				<tr>
 					<td>Address: </td>
