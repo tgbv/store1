@@ -14,6 +14,6 @@ class Cities extends Model
     */
     public function city()
     {
-    	return $this -> hasMany('App\Orders', 'city', 'id');
+    	return $this -> belongsTo('App\Orders', 'city', 'id');
     }
 }

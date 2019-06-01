@@ -14,6 +14,6 @@ class Counties extends Model
     */
     public function county()
     {
-    	return $this -> hasMany('App\Orders', 'county', 'id');
+    	return $this -> belongsTo('App\Orders', 'county', 'id');
     }
 }
