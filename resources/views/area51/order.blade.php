@@ -54,7 +54,7 @@
 				</tr>
 				<tr>
 					<td>City: </td>
-					<td><code>{{ $ORDER -> city -> first() -> name }}</code></td>
+					<td><code>{{ $ORDER -> city() -> first() -> name }}</code></td>
 				</tr>
 				<tr>
 					<td>Address: </td>
