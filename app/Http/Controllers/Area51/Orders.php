@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Area51;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 use App\Orders as MOrders;
+use App\Products as MProducts;
 
 class Orders extends Controller
 {
