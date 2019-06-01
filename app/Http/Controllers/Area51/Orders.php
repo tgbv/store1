@@ -43,6 +43,15 @@ class Orders extends Controller
     */
     public function read(int $id)
     {
+        /*
+        *   Get everything
+        */
+        $data = MOrders::find($id);
+        $data -> city = MOrders::find($id) -> city();
+        $data -> county = MOrders::find($id) -> county();
+
+        
+        
     	return view('area51.order', [
     		'ORDER' => MOrders::where('id', $id) -> first(),
     	]);
