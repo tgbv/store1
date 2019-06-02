@@ -64,14 +64,84 @@
 		position: relative;
 		top: -4px;
 	}
+
+	.__cover_text_desktop
+	{
+		font-size: 60px;
+		font-weight: 100;
+		color: white;
+		margin-top: 15px;
+	}
+
+	.__cover_text_medium
+	{
+		font-size: 50px;
+		font-weight: 100;
+		color: white;
+		margin-top: 15px;
+	}
+
+	.__cover_text_mobile
+	{
+		font-size: 40px;
+		font-weight: 100;
+		color: white;
+		margin-top: 15px;
+	}
+
+	.__wall2 .__welcome {
+		font-weight: 100;
+		font-size: 60px;
+		color: white;
+		margin-top: 15px;
+	}
+
+	.__wall2 .__welcome_med 
+	{
+		font-weight: 100;
+		font-size: 54px;
+		color: white;
+		margin-top: 15px;
+	}
+
+	.__wall2 .__welcome_small
+	{
+		font-weight: 100;
+		font-size: 45px;
+		color: white;
+		margin-top: 15px;
+	}
+@endsection
+@section('cover')
+	<div class="__welcome hide-on-med-and-down">
+		<span hidden="" class="__w">I hope..</span>
+		<span hidden="" class="__w2">You like them :)</span>
+	</div>
+	<div class="__welcome_med hide-on-small-only hide-on-large-only">
+		<span hidden="" class="__w">I hope..</span>
+		<span hidden="" class="__w2">You like them :)</span>
+	</div>
+	<div class="__welcome_small hide-on-med-and-up">
+		<span hidden="" class="__w">I hope..</span>
+		<span hidden="" class="__w2">You like them :)</span>
+	</div>
 @endsection
 @section('main')
 	<div class="container">
 		<div class="row">
 			<div class="col s12 m12 l12">
-				<div class="__title __title_l hide-on-med-and-down">{{$PRODUCT -> title }}</div>
-				<div class="__title __title_m hide-on-small-only hide-on-large-only">{{$PRODUCT -> title }}</div>
-				<div class="__title __title_s hide-on-med-and-up">{{$PRODUCT -> title }}</div>
+				<div class="__title __title_l hide-on-med-and-down">
+					{{$PRODUCT -> title }}
+					— <span class="green-text text-darken-2">{{ $PRODUCT -> price}} RON</span> 
+				</div>
+				<div class="__title __title_m hide-on-small-only hide-on-large-only">
+					{{$PRODUCT -> title }}
+					— <span class="green-text text-darken-2">{{ $PRODUCT -> price}} RON</span> 
+				</div>
+				<div class="__title __title_s hide-on-med-and-up">
+					{{$PRODUCT -> title }}
+					— <span class="green-text text-darken-2">{{ $PRODUCT -> price}} RON</span> 
+				</div>
 
 				<div class="flow-text __description">
 					{{ $PRODUCT -> description }}
@@ -92,4 +162,13 @@
 			</div>
 		</div>
 	</div>
+@endsection
+@section('js')
+	$(document).ready(function(){
+		$('.__w').fadeIn(2000);
+
+		setTimeout(() => {
+			$('.__w2').fadeIn(4000);
+		}, 1000);
+	})
 @endsection

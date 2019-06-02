@@ -47,6 +47,42 @@
 		margin-top: -4px;
 	}
 
+	.__wall2 .__welcome {
+		font-weight: 100;
+		font-size: 60px;
+		color: white;
+		margin-top: 15px;
+	}
+	
+	.__wall2 .__welcome_med 
+	{
+		font-weight: 100;
+		font-size: 54px;
+		color: white;
+		margin-top: 15px;
+	}
+
+	.__wall2 .__welcome_small
+	{
+		font-weight: 100;
+		font-size: 45px;
+		color: white;
+		margin-top: 15px;
+	}
+@endsection
+@section('cover')
+	<div class="__welcome hide-on-med-and-down">
+		<span hidden="" class="__w">Thanks..</span>
+		<span hidden="" class="__w2">For buying them :)</span>
+	</div>
+	<div class="__welcome_med hide-on-small-only hide-on-large-only">
+		<span hidden="" class="__w">Thanks..</span>
+		<span hidden="" class="__w2">For buying them :)</span>
+	</div>
+	<div class="__welcome_small hide-on-med-and-up">
+		<span hidden="" class="__w">Thanks..</span>
+		<span hidden="" class="__w2">For buying them :)</span>
+	</div>
 @endsection
 @section('main')
 	<div class="container">
@@ -175,6 +211,14 @@
 
 	$(document).ready(function()
 	{
+		/*
+		*	Fadein stuff
+		*/
+		$('.__w').fadeIn(2000);
+		setTimeout(() => {
+			$('.__w2').fadeIn(4000);
+		}, 1000);
+
 		/*
 		*	Autoload stuff
 		*/

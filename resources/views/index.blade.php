@@ -99,19 +99,16 @@
 	<!-- giant cover -->
 	@section('cover')
 		<div class="__welcome hide-on-med-and-down">
-			Hi! 
-			<br>
-			Check out my paintings!
+			<span hidden="" class="__w">Hi!</span>
+			<span hidden="" class="__w2">Check out my paintings!</span>
 		</div>
 		<div class="__welcome_med hide-on-small-only hide-on-large-only">
-			Hi! 
-			<br>
-			Check out my paintings!
+			<span hidden="" class="__w">Hi!</span>
+			<span hidden="" class="__w2">Check out my paintings!</span>
 		</div>
 		<div class="__welcome_small hide-on-med-and-up">
-			Hi! 
-			<br>
-			Check out my paintings!
+			<span hidden="" class="__w">Hi!</span>
+			<span hidden="" class="__w2">Check out my paintings!</span>
 		</div>
 	@endsection
 
@@ -230,4 +227,13 @@
 			</div>
 		</div>
 	</div>
+@endsection
+@section('js')
+	$(document).ready(function(){
+		$('.__w').fadeIn(2000);
+
+		setTimeout(() => {
+			$('.__w2').fadeIn(4000);
+		}, 1000);
+	})
 @endsection

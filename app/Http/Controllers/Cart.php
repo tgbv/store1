@@ -23,9 +23,12 @@ class Cart extends Controller
         */
         foreach(Session::get('products') as $key => $value)
         {
+            $tmp = MProducts::select(['title', 'price']) -> where('id', $value) -> first();
+
             $data[count($data)] = [
                                     "id" => $value,
-                                    "title" => MProducts::select('title') -> where('id', $value) -> first() -> title,
+                                    "title" => $tmp->title,
+                                    "price" => $tmp -> price,
                                     ];
         }
 

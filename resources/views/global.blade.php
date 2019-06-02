@@ -105,6 +105,15 @@
 				left: 2px;
 			}
 
+			a.__cart
+			{
+				float: right; 
+				display: inline; 
+				width: 56px; 
+				position: relative; 
+				left: 13px;
+			}
+			
 			@yield('style')
 		</style>
 		@yield('head')
@@ -116,7 +125,7 @@
 				<div class="container">
 					<div class="__menu">
 						<a href="#!" data-target="__sidenav" class="sidenav-trigger" style="float: left; display: inline;"><i class="material-icons">menu</i></a>
-						<a href="/cart#cart" style="float: right; display: inline;">
+						<a href="/cart#cart" class="__cart">
 							<i class="material-icons">shopping_cart</i>
 							@if($products > 0)
 								<div class="cart-chip">
