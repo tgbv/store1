@@ -49,7 +49,7 @@
 
 	.btn
 	{
-		margin-top: 20px;
+		/* margin-top: 20px; */
 		float: right;
 		background-color: #ff0075;
 	}

@@ -92,7 +92,18 @@
 		color: grey !important;
 	}
 
+	.modal-content a:hover
+	{
+		text-decoration: underline;
+		color: red;
+	}
 
+	.modal-footer span
+	{
+		position: relative;
+		top: -4.3px;
+		left: -5px;
+	}
 @endsection
 
 @section('main')
