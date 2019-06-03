@@ -54,7 +54,7 @@
 							
 						</div>
 						<div class="card-content">
-							<span class="card-title">{{ $object -> title }} ({{$object -> price}})</span>
+							<span class="card-title">{{ $object -> title }} ({{$object -> price}} RON)</span>
 						</div>
 						<div class="card-action">
 							<a href="/area51/dash/edit/{{ $object -> id }}">Edit</a>

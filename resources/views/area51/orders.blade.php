@@ -1,3 +1,10 @@
+<?php
+	
+	use \Carbon\Carbon;
+
+	date_default_timezone_set('Europe/Bucharest');
+
+?>
 @extends('area51.global')
 @section('title') Orders @endsection
 @section('main')
@@ -17,7 +24,7 @@
 				@foreach($ORDERS as $object)
 					<tr>
 						<td><code>{{ $object -> id }}</code></td>
-						<td><code>{{ $object -> created_at}}</code></td>
+						<td><code>{{ $object -> created_at}} (<?= Carbon::createFromTimeStamp(strtotime($object -> created_at))->diffForHumans() ?>)</code></td>
 						<td>
 							@if($object -> status === 'pending')
 								<b style="color: red;">{{ $object -> status }}</b>

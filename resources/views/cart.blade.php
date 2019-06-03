@@ -54,6 +54,8 @@
 		font-size: 60px;
 		color: white;
 		margin-top: 15px;
+		position: relative;
+		top: 40px;
 	}
 	
 	.__wall2 .__welcome_med 
@@ -62,6 +64,8 @@
 		font-size: 54px;
 		color: white;
 		margin-top: 15px;
+		position: relative;
+		top: 40px;
 	}
 
 	.__wall2 .__welcome_small
@@ -70,20 +74,19 @@
 		font-size: 45px;
 		color: white;
 		margin-top: 15px;
+		position: relative;
+		top: 30px;
 	}
 @endsection
 @section('cover')
 	<div class="__welcome hide-on-med-and-down">
-		<span hidden="" class="__w">Thanks..</span>
-		<span hidden="" class="__w2">For buying them :)</span>
+		<span hidden="" class="__w">Thanks for buying out :)</span>
 	</div>
 	<div class="__welcome_med hide-on-small-only hide-on-large-only">
-		<span hidden="" class="__w">Thanks..</span>
-		<span hidden="" class="__w2">For buying them :)</span>
+		<span hidden="" class="__w">Thanks for buying out :)</span>
 	</div>
 	<div class="__welcome_small hide-on-med-and-up">
-		<span hidden="" class="__w">Thanks..</span>
-		<span hidden="" class="__w2">For buying them :)</span>
+		<span hidden="" class="__w">Thanks for buying out :)</span>
 	</div>
 @endsection
 @section('main')
@@ -108,12 +111,12 @@
 						@foreach($OBJECTS as $array)
 							<tr>
 								<td>
-									<span>{{ $array['title'] }}</span>
 									<a href="/cart/{{ $array['id'] }}/remove">
 										<span class="red chip waves-effect waves-light" title="Remove from cart">
-												<i class="material-icons tiny" >close</i>
+											<i class="material-icons tiny" >close</i>
 										</span>
 									</a>
+									<span>{{ $array['title'] }}</span>
 								</td>
 								<td><code>1</code></td>
 								<td><code>{{ $array['price'] }} RON</code></td>
@@ -121,9 +124,14 @@
 							@php $price += $array['price'] @endphp
 						@endforeach
 						<tr>
-							<td>Final price</td>
+							<td>
+								<span class="green chip">
+									<i class="material-icons tiny">checked</i>
+								</span>
+								<span style="position: relative; top: -3px;">Final price</span>
+							</td>
 							<td></td>
-							<td><b style="font-size: 20px;">{{ $price }} RON</b></td>
+							<td><b>{{ $price }} RON</b></td>
 						</tr>
 					</tbody>
 				</table>
@@ -134,10 +142,9 @@
 @endsection
 @section('js')
 	$(document).ready(function(){
-		$('.__w').fadeIn(2000);
-
+		$('.__w').fadeIn(1000);
 		setTimeout(() => {
-			$('.__w2').fadeIn(4000);
-		}, 1000);
+			$('.__w2').fadeIn(2000);
+		}, 500);
 	})
 @endsection

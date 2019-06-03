@@ -52,6 +52,8 @@
 		font-size: 60px;
 		color: white;
 		margin-top: 15px;
+		position: relative;
+		top: 40px;
 	}
 	
 	.__wall2 .__welcome_med 
@@ -60,6 +62,8 @@
 		font-size: 54px;
 		color: white;
 		margin-top: 15px;
+		position: relative;
+		top: 40px;
 	}
 
 	.__wall2 .__welcome_small
@@ -68,20 +72,19 @@
 		font-size: 45px;
 		color: white;
 		margin-top: 15px;
+		position: relative;
+		top: 30px;
 	}
 @endsection
 @section('cover')
 	<div class="__welcome hide-on-med-and-down">
-		<span hidden="" class="__w">Thanks..</span>
-		<span hidden="" class="__w2">For buying them :)</span>
+		<span hidden="" class="__w">Thanks for buying out :)</span>
 	</div>
 	<div class="__welcome_med hide-on-small-only hide-on-large-only">
-		<span hidden="" class="__w">Thanks..</span>
-		<span hidden="" class="__w2">For buying them :)</span>
+		<span hidden="" class="__w">Thanks for buying out :)</span>
 	</div>
 	<div class="__welcome_small hide-on-med-and-up">
-		<span hidden="" class="__w">Thanks..</span>
-		<span hidden="" class="__w2">For buying them :)</span>
+		<span hidden="" class="__w">Thanks for buying out :)</span>
 	</div>
 @endsection
 @section('main')
@@ -214,11 +217,11 @@
 		/*
 		*	Fadein stuff
 		*/
-		$('.__w').fadeIn(2000);
+		$('.__w').fadeIn(1000);
 		setTimeout(() => {
-			$('.__w2').fadeIn(4000);
-		}, 1000);
-
+			$('.__w2').fadeIn(2000);
+		}, 500);
+			
 		/*
 		*	Autoload stuff
 		*/

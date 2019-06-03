@@ -113,6 +113,34 @@
 	@endsection
 
 	<div class="container">
+
+		<!--- contact methods -->
+	  <div id="contact_method" class="modal">
+	    <div class="modal-content">
+	      <h4 class="hide-on-small-only">Contact methods</h4>
+	      <h5 class="hide-on-med-and-up">Contact methods</h5>
+	      <div class="flow-text">
+		      <ul>
+		      	<li>
+		      		<i class="fa fa-facebook"></i>
+		      		<a href="#!" style="margin-left: 5px;">Facebook</a>
+		      	</li>
+		      	<li>
+		      		<i class="fa fa-whatsapp"></i>
+		      		<a href="#!">Whatsapp</a>
+		      	</li>
+		      </ul>
+	      </div>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="#!" class="modal-close waves-effect waves-green btn-flat">
+	      	<i class="material-icons">close</i>&nbsp;
+	      	<span>Close</span>
+	      </a>
+	    </div>
+	  </div>
+	  	<!--- contact methods --->
+
 		<!-- welcome -->
 		<div class="row" style="margin-top: 40px;">
 			<!-- about me -->
@@ -131,7 +159,8 @@
 		            		<br>
 		            		<br>
 		            		If you want to, I can also paint on order.
-		            		Simply hop to <a href="#footer">contact section</a> and send me a message.
+		            		<br>
+		            		Simply <a class="modal-trigger" href="#contact_method">contact me</a> :)
 		            	</div>
 		            </div>
 		          </div>
@@ -149,7 +178,7 @@
 		            		<br>
 		            		<br>
 		            		If you want to, I can also paint on order.
-		            		Simply hop to <a href="#footer">contact section</a> and send me a message.
+		            		Simply <a class="modal-trigger" href="#contact_method">contact me</a>.
 		            	</div>
 		            </div>
 		          </div>
@@ -195,7 +224,7 @@
 				        	<span class="card-title">{{$object -> title}}</span>
 				        </div>
 				        <div class="card-action">
-				        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}">Details</a>
+				        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}#product">Details</a>
 				        	<a class="red-text waves-effect" href="/cart/{{$object -> id}}/add">Add to cart</a>
 				        </div>
 				      </div>
@@ -218,7 +247,7 @@
 				        </div>
 
 				        <div class="card-action">
-				        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}">Details</a>
+				        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}#product">Details</a>
 				        	<a class="red-text waves-effect" href="/cart/{{$object -> id}}/add">Add to cart</a>
 				        </div>
 				    	</div>
@@ -230,10 +259,18 @@
 @endsection
 @section('js')
 	$(document).ready(function(){
-		$('.__w').fadeIn(2000);
+		/*
+		*	Autoload stuff
+		*/
+		$('.modal').modal();
+
+		/*
+		*	Fadein
+		*/
+		$('.__w').fadeIn(1000);
 
 		setTimeout(() => {
-			$('.__w2').fadeIn(4000);
-		}, 1000);
+			$('.__w2').fadeIn(2000);
+		}, 500);
 	})
 @endsection

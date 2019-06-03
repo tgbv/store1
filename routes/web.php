@@ -47,8 +47,8 @@ Route::prefix('/area51') -> group(function()
 	/*
 	*	Dashboard
 	*/
-	//Route::middleware('auth') -> group(function()
-	//{
+	Route::middleware('auth') -> group(function()
+	{
 		/*
 		*	Dashboard
 		*/
@@ -69,7 +69,7 @@ Route::prefix('/area51') -> group(function()
 		Route::get('/order/{id}', 'Area51\Orders@read');
 		Route::patch('/order/{id}', 'Area51\Orders@update');
 
-	//});
+	});
 });
 
 
