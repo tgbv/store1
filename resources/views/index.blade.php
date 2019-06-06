@@ -220,53 +220,55 @@
 			</div>
 		</div>
 
-		<!-- products card-->
-		<div id="my_work" name="my_work"></div>
-		<div class="__mywork card-panel grey lighten-5 z-depth-1 hide-on-small-only">
-			<div class="__my_work">My work</div>
-			<div class="row">
-				@foreach($PRODUCTS as $object)
-				    <div class="col s12 m4 l4 ">
-				      <div class="card hoverable">
-				        <div class="card-image ">
-				          <img class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
-				        </div>
-				        <div class="card-content">
-				        	<span class="card-title">{{$object -> title}}</span>
-				        </div>
-				        <div class="card-action">
-				        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}#product">Details</a>
-				        	<a class="red-text waves-effect" href="/cart/{{$object -> id}}/add">Add to cart</a>
-				        </div>
-				      </div>
-				    </div>
-				@endforeach
-			</div>
-		</div>
-
-		<div class="__mywork_mobile hide-on-med-and-up">
-			<div class="row">
+		@if(count($PRODUCTS) > 0)
+			<!-- products card-->
+			<div id="my_work" name="my_work"></div>
+			<div class="__mywork card-panel grey lighten-5 z-depth-1 hide-on-small-only">
 				<div class="__my_work">My work</div>
-				@foreach($PRODUCTS as $object)
-				    <div class="col s12 m4 l4 ">
-				      <div class="card hoverable">
-				        <div class="card-image ">
-				          <img class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
-				        </div>
-				        <div class="card-content">
-				        	<span class="card-title">{{$object -> title}}</span>
-				        </div>
+				<div class="row">
+					@foreach($PRODUCTS as $object)
+					    <div class="col s12 m4 l4 ">
+					      <div class="card hoverable">
+					        <div class="card-image ">
+					          <img class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
+					        </div>
+					        <div class="card-content">
+					        	<span class="card-title">{{$object -> title}}</span>
+					        </div>
+					        <div class="card-action">
+					        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}#product">Details</a>
+					        	<a class="red-text waves-effect" href="/cart/{{$object -> id}}/add">Add to cart</a>
+					        </div>
+					      </div>
+					    </div>
+					@endforeach
+				</div>
+			</div>
 
-				        <div class="card-action">
-				        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}#product">Details</a>
-				        	<a class="red-text waves-effect" href="/cart/{{$object -> id}}/add">Add to cart</a>
-				        </div>
-				    	</div>
-				    </div>
-				@endforeach
+			<div class="__mywork_mobile hide-on-med-and-up">
+				<div class="row">
+					<div class="__my_work">My work</div>
+					@foreach($PRODUCTS as $object)
+					    <div class="col s12 m4 l4 ">
+					      <div class="card hoverable">
+					        <div class="card-image ">
+					          <img class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
+					        </div>
+					        <div class="card-content">
+					        	<span class="card-title">{{$object -> title}}</span>
+					        </div>
+
+					        <div class="card-action">
+					        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}#product">Details</a>
+					        	<a class="red-text waves-effect" href="/cart/{{$object -> id}}/add">Add to cart</a>
+					        </div>
+					    	</div>
+					    </div>
+					@endforeach
+				</div>
 			</div>
 		</div>
-	</div>
+	@endif
 @endsection
 @section('js')
 	$(document).ready(function(){

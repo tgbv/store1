@@ -13,7 +13,7 @@ class Index extends Controller
     public function index()
     {
     	return view('index', [
-    		'PRODUCTS' => MProducts::all(),
+    		'PRODUCTS' => MProducts::where('status', 'free') -> get(),
     	]);
     }
 }

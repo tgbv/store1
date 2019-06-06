@@ -219,14 +219,18 @@
 						<ul>
 							<li>
 								<a class="grey-text text-lighten-3" href="#!">
-									<i class="fa fa-facebook" aria-hidden="true"></i>
-									<span style="margin-left: 6px;">Facebook</span>
+									<i class="fa fa-whatsapp"></i>
+									<span style="margin-left: 2px;">
+										<a href="https://api.whatsapp.com/send?phone=40749929468">Whatsapp</a>
+									</span>
 								</a>
 							</li>
 							<li>
 								<a class="grey-text text-lighten-3" href="#!">
-									<i class="fa fa-whatsapp"></i>
-									<span style="margin-left: 2px;">Whatsapp</span>
+									<i class="fa fa-facebook" aria-hidden="true"></i>
+									<span style="margin-left: 6px;">
+										<a href="#">E-mail</a>
+									</span>
 								</a>
 							</li>
 						</ul>
