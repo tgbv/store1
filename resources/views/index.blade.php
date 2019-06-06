@@ -1,6 +1,14 @@
 @extends('global')
 
 @section('title') Joanna Paintings - Welcome! @endsection
+@section('head')
+	<meta name="description" content="Buy pictures at low price. Order painted artistic operas. Track my artistic activity online. Get in touch with me. All in one place! :)"> 
+	<meta name="og:title" property="og:title" content="{{$PRODUCT -> title}}"> 
+	<meta name="og:type" property="og:type" content="website"> 
+	<meta name="og:description" property="og:description" content="Buy pictures at low price. Order painted artistic operas. Track my artistic activity online. Get in touch with me. All in one place! :)"> 
+	<meta name="og:image" property="og:image" content="https://{{ $_SERVER['SERVER_NAME'] }}/static/{{$PRODUCTS -> last() -> fname }}">
+	<meta name="robots" content="index, follow"> 
+@endsection
 @section('style')
 	.__wall2 .__welcome {
 		font-weight: 100;
@@ -204,7 +212,7 @@
 			        <div class="row">
 			        	<div class="col">
 			        		<div style="font-size: 29px; font-weight: 100; margin-bottom: 25px;">My latest painting</div>
-							<img style="max-height: 200px;" class="responsive-img materialboxed" src="/static/{{$PRODUCTS -> last() -> fname }}">
+							<img alt="My last upload" style="max-height: 200px;" class="responsive-img materialboxed" src="/static/{{$PRODUCTS -> last() -> fname }}">
 			        	</div>
 			        </div>
 		    	</div>
@@ -213,7 +221,7 @@
 			        <div class="row">
 			        	<div class="col">
 			        		<div style="font-size: 29px; font-weight: 100; margin-bottom: 25px;">My latest painting</div>
-							<img style="max-height: 200px;" class="responsive-img materialboxed" src="/static/{{$PRODUCTS -> last() -> fname }}">
+							<img alt="My last upload" style="max-height: 200px;" class="responsive-img materialboxed" src="/static/{{$PRODUCTS -> last() -> fname }}">
 			        	</div>
 			        </div>
 		    	</div>
@@ -230,7 +238,7 @@
 					    <div class="col s12 m4 l4 ">
 					      <div class="card hoverable">
 					        <div class="card-image ">
-					          <img class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
+					          <img alt="{{ $object->title }}" class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
 					        </div>
 					        <div class="card-content">
 					        	<span class="card-title">{{$object -> title}}</span>
@@ -252,7 +260,7 @@
 					    <div class="col s12 m4 l4 ">
 					      <div class="card hoverable">
 					        <div class="card-image ">
-					          <img class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
+					          <img alt="{{$object -> title}}" class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
 					        </div>
 					        <div class="card-content">
 					        	<span class="card-title">{{$object -> title}}</span>

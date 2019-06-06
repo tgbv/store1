@@ -1,6 +1,14 @@
 @extends('global')
 
 @section('title') Joanna Paintings - {{$PRODUCT -> title}} - Details @endsection
+@section('head')
+	<meta name="description" content="Joanna Paintings - {{$PRODUCT -> description}}"> 
+	<meta name="og:title" property="og:title" content="{{$PRODUCT -> title}}"> 
+	<meta name="og:type" property="og:type" content="{{$PRODUCT -> title}}"> 
+	<meta name="og:description" property="og:description" content="{{$PRODUCT -> description}}"> 
+	<meta name="og:image" property="og:image" content="https://{{ $_SERVER['SERVER_NAME'] }}/static/{{$PRODUCT -> fname}}">
+	<meta name="robots" content="index, follow"> 
+@endsection
 @section('style')
 	img
 	{
@@ -153,7 +161,7 @@
 
 				<center>
 					<a class="__img" href="/static/{{$PRODUCT -> fname}}" target="_blank">
-						<img src="/static/{{$PRODUCT -> fname}}" class="responsive-img hoverable">
+						<img alt="{{ $PRODUCT->description }}" src="/static/{{$PRODUCT -> fname}}" class="responsive-img hoverable">
 					</a>
 				</center>
 
