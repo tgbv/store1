@@ -1,5 +1,10 @@
 <?php
 
+/*
+*	Set timezone for production
+*/
+date_default_timezone_set("Europe/Bucharest");
+
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
