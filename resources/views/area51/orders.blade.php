@@ -2,7 +2,7 @@
 	
 	use \Carbon\Carbon;
 
-	date_default_timezone_set("Asia/Bishkek");
+	date_default_timezone_set("UTC");
 
 ?>
 @extends('area51.global')
