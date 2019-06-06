@@ -216,8 +216,10 @@
 			        <div class="row">
 			        	<div class="col">
 			        		<div style="font-size: 29px; font-weight: 100; margin-bottom: 25px;">My latest painting</div>
-							<img alt="My last upload" style="max-height: 200px;" class="responsive-img materialboxed" src="/static/{{$PRODUCTS -> last() -> fname }}">
-			        	</div>
+							@if(count($PRODUCTS) > 0)
+								<img alt="My last upload" style="max-height: 200px;" class="responsive-img materialboxed" src="/static/{{$PRODUCTS -> last() -> fname }}">
+							@endif
+						</div>
 			        </div>
 		    	</div>
 		    	<!-- mobile -->
@@ -225,7 +227,9 @@
 			        <div class="row">
 			        	<div class="col">
 			        		<div style="font-size: 29px; font-weight: 100; margin-bottom: 25px;">My latest painting</div>
-							<img alt="My last upload" style="max-height: 200px;" class="responsive-img materialboxed" src="/static/{{$PRODUCTS -> last() -> fname }}">
+							@if(count($PRODUCTS) > 0) 
+								<img alt="My last upload" style="max-height: 200px;" class="responsive-img materialboxed" src="/static/{{$PRODUCTS -> last() -> fname }}">
+							@endif
 			        	</div>
 			        </div>
 		    	</div>
