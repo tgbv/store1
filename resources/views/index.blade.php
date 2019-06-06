@@ -3,10 +3,14 @@
 @section('title') Joana Paintings - Welcome! @endsection
 @section('head')
 	<meta name="description" content="Buy pictures at low price. Order painted artistic operas. Track my artistic activity online. Get in touch with me. All in one place! :)"> 
-	<meta name="og:title" property="og:title" content="{{$PRODUCT -> title}}"> 
+	@if(count($PRODUCTS) > 0)
+		<meta name="og:title" property="og:title" content="{{$PRODUCTS -> last() -> title}}"> 
+	@endif
 	<meta name="og:type" property="og:type" content="website"> 
 	<meta name="og:description" property="og:description" content="Buy pictures at low price. Order painted artistic operas. Track my artistic activity online. Get in touch with me. All in one place! :)"> 
-	<meta name="og:image" property="og:image" content="https://{{ $_SERVER['SERVER_NAME'] }}/static/{{$PRODUCTS -> last() -> fname }}">
+	@if(count($PRODUCTS) > 0)
+		<meta name="og:image" property="og:image" content="https://{{ $_SERVER['SERVER_NAME'] }}/static/{{$PRODUCTS -> last() -> fname }}"> 
+	@endif
 	<meta name="robots" content="index, follow"> 
 @endsection
 @section('style')
