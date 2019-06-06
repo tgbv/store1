@@ -142,15 +142,15 @@
 	    <div class="modal-content">
 	      <h4 class="hide-on-small-only">Contact methods</h4>
 	      <h5 class="hide-on-med-and-up">Contact methods</h5>
-	      <div class="flow-text">
+			<div class="flow-text">
 		      <ul>
 		      	<li>
-		      		<i class="fa fa-facebook"></i>
-		      		<a href="#!" style="margin-left: 5px;">Facebook</a>
+		      		<i class="fa fa-whatsapp"></i>
+		      		<a target="_blank" href="https://api.whatsapp.com/send?phone=40749929468">Whatsapp</a>
 		      	</li>
 		      	<li>
-		      		<i class="fa fa-whatsapp"></i>
-		      		<a href="#!">Whatsapp</a>
+		      		<i class="fa fa-envelope"></i>
+		      		<a href="mailto:contact@joanapaintingsforyou.ml" style="margin-left: 5px;">E-mail</a>
 		      	</li>
 		      </ul>
 	      </div>

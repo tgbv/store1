@@ -114,6 +114,11 @@
 				left: 13px;
 			}
 			
+			.__contactmefooter a
+			{
+				color: white;
+			}
+			
 			@yield('style')
 		</style>
 		@yield('head')
@@ -214,14 +219,14 @@
 							</li>
 						</ul>
 					</div>
-					<div class="col l4 m4 s12">
+					<div class="col l4 m4 s12 __contactmefooter">
 						<h5 class="white-text">Contact Me</h5>
 						<ul>
 							<li>
 								<a class="grey-text text-lighten-3" href="#!">
 									<i class="fa fa-whatsapp"></i>
 									<span style="margin-left: 2px;">
-										<a href="https://api.whatsapp.com/send?phone=40749929468">Whatsapp</a>
+										<a target="_blank" href="https://api.whatsapp.com/send?phone=40749929468">Whatsapp</a>
 									</span>
 								</a>
 							</li>
@@ -229,7 +234,7 @@
 								<a class="grey-text text-lighten-3" href="#!">
 									<i class="fa fa-facebook" aria-hidden="true"></i>
 									<span style="margin-left: 6px;">
-										<a href="#">E-mail</a>
+										<a target="_blank" href="mailto:contact@joanapaintingsforyou.ml">E-mail</a>
 									</span>
 								</a>
 							</li>
