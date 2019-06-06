@@ -1,6 +1,6 @@
 @extends('global')
 
-@section('title') Title here @endsection
+@section('title') Joanna Paintings - Welcome! @endsection
 @section('style')
 	.__wall2 .__welcome {
 		font-weight: 100;

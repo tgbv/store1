@@ -1,6 +1,6 @@
 @extends('global')
 
-@section('title') {{$PRODUCT -> title}} - Details @endsection
+@section('title') Joanna Paintings - {{$PRODUCT -> title}} - Details @endsection
 @section('style')
 	img
 	{
