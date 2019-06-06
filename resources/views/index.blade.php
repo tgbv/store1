@@ -1,6 +1,6 @@
 @extends('global')
 
-@section('title') Joanna Paintings - Welcome! @endsection
+@section('title') Joana Paintings - Welcome! @endsection
 @section('head')
 	<meta name="description" content="Buy pictures at low price. Order painted artistic operas. Track my artistic activity online. Get in touch with me. All in one place! :)"> 
 	<meta name="og:title" property="og:title" content="{{$PRODUCT -> title}}"> 

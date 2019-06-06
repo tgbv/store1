@@ -1,8 +1,8 @@
 @extends('global')
 
-@section('title') Joanna Paintings - {{$PRODUCT -> title}} - Details @endsection
+@section('title') Joana Paintings - {{$PRODUCT -> title}} - Details @endsection
 @section('head')
-	<meta name="description" content="Joanna Paintings - {{$PRODUCT -> description}}"> 
+	<meta name="description" content="Joana Paintings - {{$PRODUCT -> description}}"> 
 	<meta name="og:title" property="og:title" content="{{$PRODUCT -> title}}"> 
 	<meta name="og:type" property="og:type" content="{{$PRODUCT -> title}}"> 
 	<meta name="og:description" property="og:description" content="{{$PRODUCT -> description}}"> 
