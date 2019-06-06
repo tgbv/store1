@@ -232,7 +232,7 @@
 							</li>
 							<li>
 								<a class="grey-text text-lighten-3" href="#!">
-									<i class="fa fa-facebook" aria-hidden="true"></i>
+									<i class="fa fa-envelope" aria-hidden="true"></i>
 									<span style="margin-left: 6px;">
 										<a target="_blank" href="mailto:contact@joanapaintingsforyou.ml">E-mail</a>
 									</span>
