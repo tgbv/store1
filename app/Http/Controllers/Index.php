@@ -14,10 +14,10 @@ class Index extends Controller
     */
     public function index()
     {
-    	$products = MProducts::where('status', 'free') -> get()
+    	$products = MProducts::where('status', 'free') -> get();
     	$tall = [];
     	$short = [];
-dsd
+
     	foreach($products as $k => $object)
     	{
     		return response(Image::make(Storage::get($object -> fname)) -> height());
