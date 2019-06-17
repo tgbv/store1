@@ -20,6 +20,8 @@ class Index extends Controller
 
     	foreach($products as $k => $object)
     	{
+    		return response(Image::make(Storage::get($object -> fname)) -> height());
+
     		if(Image::make(Storage::get($object -> fname)) -> height() < 3000)
     			$short[$k] = $object;
     		else
