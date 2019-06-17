@@ -300,6 +300,7 @@
 					    </div>
 					@endforeach
 				</div>
+				<div class="row">
 					<div class="__my_work">My work</div>
 					@foreach($TALL as $object)
 					    <div class="col s12 m4 l4 ">
