@@ -17,7 +17,7 @@ class Index extends Controller
     	$products = MProducts::where('status', 'free') -> get()
     	$tall = [];
     	$short = [];
-
+dsd
     	foreach($products as $k => $object)
     	{
     		return response(Image::make(Storage::get($object -> fname)) -> height());
