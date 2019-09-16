@@ -64,7 +64,7 @@ class Orders extends Controller
         /*
         *   Re-assign product names
         */
-        $data -> products = implode(',', $products);
+        $data -> products = implode(', ', $products);
       
     	return view('area51.order', [
     		'ORDER' => $data,
