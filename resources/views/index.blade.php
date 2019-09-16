@@ -1,6 +1,18 @@
 @extends('global')
 
-@section('title') Title here @endsection
+@section('title') Joana Paintings - Welcome! @endsection
+@section('head')
+	<meta name="description" content="Buy pictures at low price. Order painted artistic operas. Track my artistic activity online. Get in touch with me. All in one place! :)"> 
+	@if(count($PRODUCTS) > 0)
+		<meta name="og:title" property="og:title" content="{{$PRODUCTS -> last() -> title}}"> 
+	@endif
+	<meta name="og:type" property="og:type" content="website"> 
+	<meta name="og:description" property="og:description" content="Buy pictures at low price. Order painted artistic operas. Track my artistic activity online. Get in touch with me. All in one place! :)"> 
+	@if(count($PRODUCTS) > 0)
+		<meta name="og:image" property="og:image" content="https://{{ $_SERVER['SERVER_NAME'] }}/static/{{$PRODUCTS -> last() -> fname }}"> 
+	@endif
+	<meta name="robots" content="index, follow"> 
+@endsection
 @section('style')
 	.__wall2 .__welcome {
 		font-weight: 100;
@@ -92,30 +104,66 @@
 		color: grey !important;
 	}
 
+	.modal-content a:hover
+	{
+		text-decoration: underline;
+		color: red;
+	}
 
+	.modal-footer span
+	{
+		position: relative;
+		top: -4.3px;
+		left: -5px;
+	}
 @endsection
 
 @section('main')
 	<!-- giant cover -->
 	@section('cover')
 		<div class="__welcome hide-on-med-and-down">
-			Hi! 
-			<br>
-			Check out my paintings!
+			<span hidden="" class="__w">Hi!</span>
+			<span hidden="" class="__w2">Check out my paintings!</span>
 		</div>
 		<div class="__welcome_med hide-on-small-only hide-on-large-only">
-			Hi! 
-			<br>
-			Check out my paintings!
+			<span hidden="" class="__w">Hi!</span>
+			<span hidden="" class="__w2">Check out my paintings!</span>
 		</div>
 		<div class="__welcome_small hide-on-med-and-up">
-			Hi! 
-			<br>
-			Check out my paintings!
+			<span hidden="" class="__w">Hi!</span>
+			<span hidden="" class="__w2">Check out my paintings!</span>
 		</div>
 	@endsection
 
 	<div class="container">
+
+		<!--- contact methods -->
+	  <div id="contact_method" class="modal">
+	    <div class="modal-content">
+	      <h4 class="hide-on-small-only">Contact methods</h4>
+	      <h5 class="hide-on-med-and-up">Contact methods</h5>
+			<div class="flow-text">
+		      <ul>
+		      	<li>
+		      		<i class="fa fa-whatsapp"></i>
+		      		<a target="_blank" href="https://api.whatsapp.com/send?phone=40749929468">Whatsapp</a>
+		      	</li>
+		      	<li>
+		      		<i class="fa fa-envelope"></i>
+		      		<a href="mailto:contact@joanapaintingsforyou.ml" style="margin-left: 5px;">E-mail</a>
+		      	</li>
+		      </ul>
+	      </div>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="#!" class="modal-close waves-effect waves-green btn-flat">
+	      	<i class="material-icons">close</i>&nbsp;
+	      	<span>Close</span>
+	      </a>
+	    </div>
+	  </div>
+	  	<!--- contact methods --->
+
 		<!-- welcome -->
 		<div class="row" style="margin-top: 40px;">
 			<!-- about me -->
@@ -134,7 +182,8 @@
 		            		<br>
 		            		<br>
 		            		If you want to, I can also paint on order.
-		            		Simply hop to <a href="#footer">contact section</a> and send me a message.
+		            		<br>
+		            		Simply <a class="modal-trigger" href="#contact_method">contact me</a> :)
 		            	</div>
 		            </div>
 		          </div>
@@ -152,7 +201,7 @@
 		            		<br>
 		            		<br>
 		            		If you want to, I can also paint on order.
-		            		Simply hop to <a href="#footer">contact section</a> and send me a message.
+		            		Simply <a class="modal-trigger" href="#contact_method">contact me</a>.
 		            	</div>
 		            </div>
 		          </div>
@@ -167,8 +216,10 @@
 			        <div class="row">
 			        	<div class="col">
 			        		<div style="font-size: 29px; font-weight: 100; margin-bottom: 25px;">My latest painting</div>
-							<img style="max-height: 200px;" class="responsive-img materialboxed" src="/static/{{$PRODUCTS -> last() -> fname }}">
-			        	</div>
+							@if(count($PRODUCTS) > 0)
+								<img alt="My last upload" style="max-height: 200px;" class="responsive-img materialboxed" src="/static/{{$PRODUCTS -> last() -> fname }}">
+							@endif
+						</div>
 			        </div>
 		    	</div>
 		    	<!-- mobile -->
@@ -176,58 +227,117 @@
 			        <div class="row">
 			        	<div class="col">
 			        		<div style="font-size: 29px; font-weight: 100; margin-bottom: 25px;">My latest painting</div>
-							<img style="max-height: 200px;" class="responsive-img materialboxed" src="/static/{{$PRODUCTS -> last() -> fname }}">
+							@if(count($PRODUCTS) > 0) 
+								<img alt="My last upload" style="max-height: 200px;" class="responsive-img materialboxed" src="/static/{{$PRODUCTS -> last() -> fname }}">
+							@endif
 			        	</div>
 			        </div>
 		    	</div>
 			</div>
 		</div>
 
-		<!-- products card-->
-		<div id="my_work" name="my_work"></div>
-		<div class="__mywork card-panel grey lighten-5 z-depth-1 hide-on-small-only">
-			<div class="__my_work">My work</div>
-			<div class="row">
-				@foreach($PRODUCTS as $object)
-				    <div class="col s12 m4 l4 ">
-				      <div class="card hoverable">
-				        <div class="card-image ">
-				          <img class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
-				        </div>
-				        <div class="card-content">
-				        	<span class="card-title">{{$object -> title}}</span>
-				        </div>
-				        <div class="card-action">
-				        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}">Details</a>
-				        	<a class="red-text waves-effect" href="/cart/{{$object -> id}}/add">Add to cart</a>
-				        </div>
-				      </div>
-				    </div>
-				@endforeach
-			</div>
-		</div>
-
-		<div class="__mywork_mobile hide-on-med-and-up">
-			<div class="row">
+		@if((count($TALL) > 0 || count($SHORT) > 0))
+			<!-- products card-->
+			<div id="my_work" name="my_work"></div>
+			<div class="__mywork card-panel grey lighten-5 z-depth-1 hide-on-small-only">
 				<div class="__my_work">My work</div>
-				@foreach($PRODUCTS as $object)
-				    <div class="col s12 m4 l4 ">
-				      <div class="card hoverable">
-				        <div class="card-image ">
-				          <img class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
-				        </div>
-				        <div class="card-content">
-				        	<span class="card-title">{{$object -> title}}</span>
-				        </div>
+				<div class="row">
+					@foreach($SHORT as $object)
+					    <div class="col s12 m4 l4 ">
+					      <div class="card hoverable">
+					        <div class="card-image ">
+					          <img alt="{{ $object->title }}" class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
+					        </div>
+					        <div class="card-content">
+					        	<span class="card-title">{{$object -> title}}</span>
+					        </div>
+					        <div class="card-action">
+					        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}#product">Details</a>
+					        	<a class="red-text waves-effect" href="/cart/{{$object -> id}}/add">Add to cart</a>
+					        </div>
+					      </div>
+					    </div>
+					@endforeach
+				</div>
+				<div class="row">
+					@foreach($TALL as $object)
+					    <div class="col s12 m4 l4 ">
+					      <div class="card hoverable">
+					        <div class="card-image ">
+					          <img alt="{{ $object->title }}" class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
+					        </div>
+					        <div class="card-content">
+					        	<span class="card-title">{{$object -> title}}</span>
+					        </div>
+					        <div class="card-action">
+					        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}#product">Details</a>
+					        	<a class="red-text waves-effect" href="/cart/{{$object -> id}}/add">Add to cart</a>
+					        </div>
+					      </div>
+					    </div>
+					@endforeach
+				</div>
+			</div>
 
-				        <div class="card-action">
-				        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}">Details</a>
-				        	<a class="red-text waves-effect" href="/cart/{{$object -> id}}/add">Add to cart</a>
-				        </div>
-				    	</div>
-				    </div>
-				@endforeach
+			<div class="__mywork_mobile hide-on-med-and-up">
+				<div class="row">
+					<div class="__my_work">My work</div>
+					@foreach($SHORT as $object)
+					    <div class="col s12 m4 l4 ">
+					      <div class="card hoverable">
+					        <div class="card-image ">
+					          <img alt="{{$object -> title}}" class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
+					        </div>
+					        <div class="card-content">
+					        	<span class="card-title">{{$object -> title}}</span>
+					        </div>
+
+					        <div class="card-action">
+					        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}#product">Details</a>
+					        	<a class="red-text waves-effect" href="/cart/{{$object -> id}}/add">Add to cart</a>
+					        </div>
+					    	</div>
+					    </div>
+					@endforeach
+				</div>
+				<div class="row">
+					<div class="__my_work">My work</div>
+					@foreach($TALL as $object)
+					    <div class="col s12 m4 l4 ">
+					      <div class="card hoverable">
+					        <div class="card-image ">
+					          <img alt="{{$object -> title}}" class="responsive-img materialboxed" src="/static/{{$object -> fname }}">
+					        </div>
+					        <div class="card-content">
+					        	<span class="card-title">{{$object -> title}}</span>
+					        </div>
+
+					        <div class="card-action">
+					        	<a class="blue-text waves-effect" href="/products/{{$object -> id}}#product">Details</a>
+					        	<a class="red-text waves-effect" href="/cart/{{$object -> id}}/add">Add to cart</a>
+					        </div>
+					    	</div>
+					    </div>
+					@endforeach
+				</div>
 			</div>
 		</div>
-	</div>
+	@endif
+@endsection
+@section('js')
+	$(document).ready(function(){
+		/*
+		*	Autoload stuff
+		*/
+		$('.modal').modal();
+
+		/*
+		*	Fadein
+		*/
+		$('.__w').fadeIn(1000);
+
+		setTimeout(() => {
+			$('.__w2').fadeIn(2000);
+		}, 500);
+	})
 @endsection

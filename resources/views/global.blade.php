@@ -13,7 +13,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		
+
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">		
 		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -105,6 +105,15 @@
 				left: 2px;
 			}
 
+			a.__cart
+			{
+				float: right; 
+				display: inline; 
+				width: 56px; 
+				position: relative; 
+				left: 13px;
+			}
+			
 			@yield('style')
 		</style>
 		@yield('head')
@@ -116,7 +125,7 @@
 				<div class="container">
 					<div class="__menu">
 						<a href="#!" data-target="__sidenav" class="sidenav-trigger" style="float: left; display: inline;"><i class="material-icons">menu</i></a>
-						<a href="/cart#cart" style="float: right; display: inline;">
+						<a href="/cart#cart" class="__cart">
 							<i class="material-icons">shopping_cart</i>
 							@if($products > 0)
 								<div class="cart-chip">
@@ -205,19 +214,23 @@
 							</li>
 						</ul>
 					</div>
-					<div class="col l4 m4 s12">
+					<div class="col l4 m4 s12 __contactmefooter">
 						<h5 class="white-text">Contact Me</h5>
 						<ul>
 							<li>
-								<a class="grey-text text-lighten-3" href="#!">
-									<i class="fa fa-facebook" aria-hidden="true"></i>
-									<span style="margin-left: 6px;">Facebook</span>
+								<a class="grey-text text-lighten-3" target="_blank" href="https://api.whatsapp.com/send?phone=40749929468">
+									<i class="fa fa-whatsapp"></i>
+									<span style="margin-left: 3px;">
+										Whatsapp
+									</span>
 								</a>
 							</li>
 							<li>
-								<a class="grey-text text-lighten-3" href="#!">
-									<i class="fa fa-whatsapp"></i>
-									<span style="margin-left: 2px;">Whatsapp</span>
+								<a class="grey-text text-lighten-3" target="_blank" href="mailto:contact@joanapaintingsforyou.ml">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+									<span style="margin-left: 3px;">
+										E-mail
+									</span>
 								</a>
 							</li>
 						</ul>

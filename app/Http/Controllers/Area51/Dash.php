@@ -33,6 +33,7 @@ class Dash extends Controller
     		'price' => $request -> input('price'),
     		'fname' => $fname,
             'description' => $request -> description,
+            'status' => 'free',
     	]);
 
     	return view('area51.index', [
@@ -53,6 +54,7 @@ class Dash extends Controller
     		'title' => $request -> input('title'),
     		'price' => $request -> input('price'),
             'description' => $request -> input('description'),
+            'status' => $request -> input('status'),
     	]);
 
         /*

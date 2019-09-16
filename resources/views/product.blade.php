@@ -1,6 +1,14 @@
 @extends('global')
 
-@section('title') {{$PRODUCT -> title}} - Details @endsection
+@section('title') Joana Paintings - {{$PRODUCT -> title}} - Details @endsection
+@section('head')
+	<meta name="description" content="Joana Paintings - {{$PRODUCT -> description}}"> 
+	<meta name="og:title" property="og:title" content="{{$PRODUCT -> title}}"> 
+	<meta name="og:type" property="og:type" content="{{$PRODUCT -> title}}"> 
+	<meta name="og:description" property="og:description" content="{{$PRODUCT -> description}}"> 
+	<meta name="og:image" property="og:image" content="https://{{ $_SERVER['SERVER_NAME'] }}/static/{{$PRODUCT -> fname}}">
+	<meta name="robots" content="index, follow"> 
+@endsection
 @section('style')
 	img
 	{
@@ -49,7 +57,7 @@
 
 	.btn
 	{
-		margin-top: 20px;
+		/* margin-top: 20px; */
 		float: right;
 		background-color: #ff0075;
 	}
@@ -64,14 +72,88 @@
 		position: relative;
 		top: -4px;
 	}
+
+	.__cover_text_desktop
+	{
+		font-size: 60px;
+		font-weight: 100;
+		color: white;
+		margin-top: 15px;
+	}
+
+	.__cover_text_medium
+	{
+		font-size: 50px;
+		font-weight: 100;
+		color: white;
+		margin-top: 15px;
+	}
+
+	.__cover_text_mobile
+	{
+		font-size: 40px;
+		font-weight: 100;
+		color: white;
+		margin-top: 15px;
+	}
+
+	.__wall2 .__welcome {
+		font-weight: 100;
+		font-size: 60px;
+		color: white;
+		margin-top: 15px;
+		position: relative;
+		top: 40px;
+	}
+
+	.__wall2 .__welcome_med 
+	{
+		font-weight: 100;
+		font-size: 54px;
+		color: white;
+		margin-top: 15px;
+		position: relative;
+		top: 45px;
+	}
+
+	.__wall2 .__welcome_small
+	{
+		font-weight: 100;
+		font-size: 45px;
+		color: white;
+		margin-top: 15px;
+		position: relative;
+		top: 30px;
+	}
+@endsection
+@section('cover')
+	<div class="__welcome hide-on-med-and-down">
+		<span hidden="" class="__w">I hope you like them :)</span>
+	</div>
+	<div class="__welcome_med hide-on-small-only hide-on-large-only">
+		<span hidden="" class="__w">I hope you like them :)</span>
+	</div>
+	<div class="__welcome_small hide-on-med-and-up">
+		<span hidden="" class="__w">I hope you like them :)</span>
+	</div>
 @endsection
 @section('main')
+	<div id="product"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col s12 m12 l12">
-				<div class="__title __title_l hide-on-med-and-down">{{$PRODUCT -> title }}</div>
-				<div class="__title __title_m hide-on-small-only hide-on-large-only">{{$PRODUCT -> title }}</div>
-				<div class="__title __title_s hide-on-med-and-up">{{$PRODUCT -> title }}</div>
+				<div class="__title __title_l hide-on-med-and-down">
+					{{$PRODUCT -> title }}
+					— <span class="green-text text-darken-2">{{ $PRODUCT -> price}} RON</span> 
+				</div>
+				<div class="__title __title_m hide-on-small-only hide-on-large-only">
+					{{$PRODUCT -> title }}
+					— <span class="green-text text-darken-2">{{ $PRODUCT -> price}} RON</span> 
+				</div>
+				<div class="__title __title_s hide-on-med-and-up">
+					{{$PRODUCT -> title }}
+					— <span class="green-text text-darken-2">{{ $PRODUCT -> price}} RON</span> 
+				</div>
 
 				<div class="flow-text __description">
 					{{ $PRODUCT -> description }}
@@ -79,7 +161,7 @@
 
 				<center>
 					<a class="__img" href="/static/{{$PRODUCT -> fname}}" target="_blank">
-						<img src="/static/{{$PRODUCT -> fname}}" class="responsive-img hoverable">
+						<img alt="{{ $PRODUCT->description }}" src="/static/{{$PRODUCT -> fname}}" class="responsive-img hoverable">
 					</a>
 				</center>
 
@@ -92,4 +174,12 @@
 			</div>
 		</div>
 	</div>
+@endsection
+@section('js')
+	$(document).ready(function(){
+		$('.__w').fadeIn(1000);
+		setTimeout(() => {
+			$('.__w2').fadeIn(2000);
+		}, 500);
+	})
 @endsection

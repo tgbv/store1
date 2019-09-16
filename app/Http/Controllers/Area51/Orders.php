@@ -59,7 +59,10 @@ class Orders extends Controller
         *   Parse product names
         */        
         foreach($products as $key => $id)
-            $products[$key] = MProducts::find($id) -> title;
+        {
+            $tmp = MProducts::find($id);
+            $products[$key] = '<a href="/area51/dash/edit/'.$tmp -> id.'" target="_BLANK">'. $tmp -> title .'</a>';
+        }
 
         /*
         *   Re-assign product names

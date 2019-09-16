@@ -1,3 +1,10 @@
+<?php
+	
+	use \Carbon\Carbon;
+
+	//date_default_timezone_set("UTC");
+
+?>
 @extends('area51.global')
 @section('title') Order Management @endsection
 @section('css')
@@ -12,6 +19,16 @@
 	{
 		color: white;
 		cursor: pointer;
+	}
+
+	a
+	{
+		color: blue;
+	}
+
+	a:hover
+	{
+		text-decoration: underline;
 	}
 @endsection
 @section('main')
@@ -34,7 +51,7 @@
 				</tr>
 				<tr>
 					<td>Created at: </td>
-					<td><code>{{ $ORDER -> created_at }}</code></td>
+					<td><code>{{ $ORDER -> created_at }}</code><code style="background-color: white; color: black;"> (<?= Carbon::createFromTimeStamp(strtotime($ORDER -> created_at)) -> diffForHumans() ?>)</code></td>
 				</tr>
 				<tr>
 					<td>First Name: </td>
@@ -66,7 +83,7 @@
 				</tr>
 				<tr>
 					<td>Products: </td>
-					<td><code>{{ $ORDER -> products }}</code></td>
+					<td><code>{!! $ORDER -> products !!}</code></td>
 				</tr>
 			</tbody>
 		</table>

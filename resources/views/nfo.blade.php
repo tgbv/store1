@@ -47,6 +47,45 @@
 		margin-top: -4px;
 	}
 
+	.__wall2 .__welcome {
+		font-weight: 100;
+		font-size: 60px;
+		color: white;
+		margin-top: 15px;
+		position: relative;
+		top: 40px;
+	}
+	
+	.__wall2 .__welcome_med 
+	{
+		font-weight: 100;
+		font-size: 54px;
+		color: white;
+		margin-top: 15px;
+		position: relative;
+		top: 40px;
+	}
+
+	.__wall2 .__welcome_small
+	{
+		font-weight: 100;
+		font-size: 45px;
+		color: white;
+		margin-top: 15px;
+		position: relative;
+		top: 30px;
+	}
+@endsection
+@section('cover')
+	<div class="__welcome hide-on-med-and-down">
+		<span hidden="" class="__w">Thanks for buying out :)</span>
+	</div>
+	<div class="__welcome_med hide-on-small-only hide-on-large-only">
+		<span hidden="" class="__w">Thanks for buying out :)</span>
+	</div>
+	<div class="__welcome_small hide-on-med-and-up">
+		<span hidden="" class="__w">Thanks for buying out :)</span>
+	</div>
 @endsection
 @section('main')
 	<div class="container">
@@ -56,15 +95,15 @@
 	    <div class="modal-content">
 	      <h4 class="hide-on-small-only">Contact methods</h4>
 	      <h5 class="hide-on-med-and-up">Contact methods</h5>
-	      <div class="flow-text">
+			<div class="flow-text">
 		      <ul>
 		      	<li>
-		      		<i class="fa fa-facebook"></i>
-		      		<a href="#!" style="margin-left: 5px;">Facebook</a>
+		      		<i class="fa fa-whatsapp"></i>
+		      		<a target="_blank" href="https://api.whatsapp.com/send?phone=40749929468">Whatsapp</a>
 		      	</li>
 		      	<li>
-		      		<i class="fa fa-whatsapp"></i>
-		      		<a href="#!">Whatsapp</a>
+		      		<i class="fa fa-envelope"></i>
+		      		<a href="mailto:contact@joanapaintingsforyou.ml" style="margin-left: 5px;">E-mail</a>
 		      	</li>
 		      </ul>
 	      </div>
@@ -175,6 +214,14 @@
 
 	$(document).ready(function()
 	{
+		/*
+		*	Fadein stuff
+		*/
+		$('.__w').fadeIn(1000);
+		setTimeout(() => {
+			$('.__w2').fadeIn(2000);
+		}, 500);
+			
 		/*
 		*	Autoload stuff
 		*/

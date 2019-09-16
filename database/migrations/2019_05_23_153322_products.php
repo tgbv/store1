@@ -19,6 +19,7 @@ class Products extends Migration
             $table->string('price');
             $table->string('fname');
             $table -> text('description');
+            $table ->string('status');
         });
     }
 

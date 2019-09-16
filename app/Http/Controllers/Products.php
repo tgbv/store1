@@ -12,6 +12,11 @@ class Products extends Controller
     */
     public function read($id)
     {
+    	/*
+    	*	Get 4 random pictures
+    	*/
+
+
     	return view('product', [
     		'PRODUCT' => MProducts::where('id', $id) -> first(),
     	]);

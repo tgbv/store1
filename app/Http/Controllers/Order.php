@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 
 use Illuminate\Database\Eloquent\Model as MEloquent;
 use App\Orders as MOrders;
+use App\Products as MProducts;
 
 class Order extends Controller
 {
@@ -37,6 +38,12 @@ class Order extends Controller
     		'products' => implode(',', Session::get('products')),
             'status' => 'pending',
     	]));
+
+        /*
+        *   Change products status
+        */
+        foreach(Session::get('products') as $id)
+            MProducts::where('id', $id) -> update(['status' => 'bought']);
 
     	/*
     	*	Clear session

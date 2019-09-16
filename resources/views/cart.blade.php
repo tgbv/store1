@@ -49,6 +49,45 @@
 		background-color: #ff0075;
 	}
 
+	.__wall2 .__welcome {
+		font-weight: 100;
+		font-size: 60px;
+		color: white;
+		margin-top: 15px;
+		position: relative;
+		top: 40px;
+	}
+	
+	.__wall2 .__welcome_med 
+	{
+		font-weight: 100;
+		font-size: 54px;
+		color: white;
+		margin-top: 15px;
+		position: relative;
+		top: 40px;
+	}
+
+	.__wall2 .__welcome_small
+	{
+		font-weight: 100;
+		font-size: 45px;
+		color: white;
+		margin-top: 15px;
+		position: relative;
+		top: 30px;
+	}
+@endsection
+@section('cover')
+	<div class="__welcome hide-on-med-and-down">
+		<span hidden="" class="__w">Thanks for buying out :)</span>
+	</div>
+	<div class="__welcome_med hide-on-small-only hide-on-large-only">
+		<span hidden="" class="__w">Thanks for buying out :)</span>
+	</div>
+	<div class="__welcome_small hide-on-med-and-up">
+		<span hidden="" class="__w">Thanks for buying out :)</span>
+	</div>
 @endsection
 @section('main')
 	<div class="container">
@@ -64,27 +103,48 @@
 						<tr>
 							<td><b>Product</b></td>
 							<td><b>Quantity</b></td>
+							<td><b>Price</b></td>
 						</tr>
 					</thead>
 					<tbody>
+						@php $price = 0; @endphp
 						@foreach($OBJECTS as $array)
 							<tr>
 								<td>
-									<span>{{ $array['title'] }}</span>
 									<a href="/cart/{{ $array['id'] }}/remove">
 										<span class="red chip waves-effect waves-light" title="Remove from cart">
-												<i class="material-icons tiny" >close</i>
+											<i class="material-icons tiny" >close</i>
 										</span>
 									</a>
+									<span>{{ $array['title'] }}</span>
 								</td>
 								<td><code>1</code></td>
+								<td><code>{{ $array['price'] }} RON</code></td>
 							</tr>
+							@php $price += $array['price'] @endphp
 						@endforeach
+						<tr>
+							<td>
+								<span class="green chip">
+									<i class="material-icons tiny">checked</i>
+								</span>
+								<span style="position: relative; top: -3px;">Final price</span>
+							</td>
+							<td></td>
+							<td><b>{{ $price }} RON</b></td>
+						</tr>
 					</tbody>
 				</table>
-
 				<div class="btn waves-effect waves-light white-text" onclick="window.location='/cart/nfo#nfo';">Next</div>
 			</div>
 		</div>
 	</div>
+@endsection
+@section('js')
+	$(document).ready(function(){
+		$('.__w').fadeIn(1000);
+		setTimeout(() => {
+			$('.__w2').fadeIn(2000);
+		}, 500);
+	})
 @endsection

@@ -12,6 +12,6 @@ class Storage extends Controller
 	*/
     public function read($fname)
     {
-    	return response() -> file(storage_path() . '/app/' .$fname);
+    	return response() -> file(storage_path() . '/app/' .$fname, ['Cache-Control' => 'public, max-age: 3600']);
     }
 }

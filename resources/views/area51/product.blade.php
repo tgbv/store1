@@ -13,6 +13,10 @@
 					<span>Price (RON):&nbsp;</span>
 					<input type="text" name="price" required="" value="{{$PRODUCT -> price}}">
 				</div>
+				<div>
+					<span>Status (free/bought):&nbsp;</span>
+					<input type="text" name="status" required="" value="{{$PRODUCT -> status}}">
+				</div>
 				<br>
 				<div>
 					<span>Description:&nbsp;</span>
